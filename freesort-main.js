@@ -38,7 +38,7 @@ var instructions = {
         "<p>図形をクリックしたままマウスを動かすと、図形を動かすことができます。</p>"+
         "<p>準備ができたらスペースキーを押してください。</p>" +
         "<p><div style='width: 700px;'>"+
-        "<div style='float: center;'><img src='img/inst.png'></img></div></p>",
+        "<div style='float: center;'><img src='https://honamik-s.github.io/search-sort/img/inst.png'></img></div></p>",
     post_trial_gap: 2000
   };
   timeline.push(instructions);
