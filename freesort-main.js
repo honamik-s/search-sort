@@ -22,12 +22,26 @@ for (var i = 1; i <= 14; i++) {
 }
 
 
+
 timeline.push({
   type: 'fullscreen',
   fullscreen_mode: true,
   message: '<p>この実験ではフルスクリーンモードを使用します。「続ける」ボタンをクリックして、フルスクリーンモードに切り替えてください。</p>',
   button_label: '続ける'
 });
+
+var instructions = {
+    type: "html-keyboard-response",
+    stimulus: "<p>この実験では、下のように2つの図形がいくつか画面に表示されます。</p>" +
+        "<p>その中に1つだけ仲間はずれの図形があります。</p>" +
+        "<p>仲間はずれの図形が見つけにくくなるように、図形を並び替えてください。</p>"+
+        "<p>図形をクリックしたままマウスを動かすと、図形を動かすことができます。</p>"+
+        "<p>準備ができたらスペースキーを押してください。</p>" +
+        "<p><div style='width: 700px;'>"+
+        "<div style='float: center;'><img src='img/inst.png'></img></div></p>",
+    post_trial_gap: 2000
+  };
+  timeline.push(instructions);
 
 timeline.push({
   type: 'html-keyboard-response',
@@ -47,9 +61,13 @@ var sort_trial = {
     stimuli: jsPsych.timelineVariable('sorting_stimuli'),
     stim_height: 60,
     stim_width: 60,
+    sort_area_height: 700,
+    sort_area_width: 800,
     button_label: '次へ',
     prompt_location: "below",
-    prompt: '<p>画像をマウスでクリックして移動させて、仲間はずれの図形が見つけにくくなるように並びかえてください。</p><p>並びかえが終わったら、「次へ」ボタンをクリックしてください。</p>'
+    prompt: '<p>画像をマウスでクリックして移動させて、仲間はずれの図形が見つけにくくなるように並びかえてください。</p>'+
+            '<p><strong>！！図形が重ならないように並べてください！！</strong></p>'+
+            '<p>並びかえが終わったら、「次へ」ボタンをクリックしてください。</p>'
 };
 
 var test_procedure = {
