@@ -61,9 +61,9 @@
         display_element: 'display_stage',
         preload_images: [sorting_stimuli_1, sorting_stimuli_2],
         on_finish: function() {
-        jsPsych.data.displayData();
-        //jsPsych.data.get().localSave("csv", "data.csv");
-        var datajs = jsPsych.data.get().json();
+            jsPsych.data.displayData();
+            //jsPsych.data.get().localSave("csv", "data.csv");
+            var datajs = jsPsych.data.get().json();
         }
     });
         }
