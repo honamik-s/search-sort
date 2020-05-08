@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>My experiment</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-free-sort.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+      <style>
+        #display_stage_background {
+            width: 100vw;
+            background-color: white;
+            z-index: -1;
+        }
+    
+        #display_stage {
+            position: fixed;
+            left: 1vw;
+            top: 1vh;
+            height: 98vh;
+            width: 98vw;
+            background-color: white;
+            box-shadow: 1px 1px 1px #999;
+            border-radius: 15px;
+            z-index: 0;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+      </style>
+      
+      <div id='display_stage_background'></div>
+      <div id='display_stage'></div>
+    </body>
+    <script src="freesort_main.js">
+
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      display_element: 'display_stage',
+      preload_images: [sorting_stimuli_1, sorting_stimuli_2],
+      on_finish: function() {
+        //jsPsych.data.displayData();
+        jsPsych.data.get().localSave("csv", "data.csv");
+        }
+    });
+
+
+    </script>
+</html>
